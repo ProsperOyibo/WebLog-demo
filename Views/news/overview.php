@@ -1,6 +1,6 @@
 <h2><?= esc($title) ?></h2>
 
-<a href="<?=base_url()?>/news/create">Create article</a>
+<a class="btn btn-primary" href="<?=base_url()?>/news/create">Create article</a>
 
 <?php if (! empty($news) && is_array($news)): ?>
 

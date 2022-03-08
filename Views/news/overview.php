@@ -4,20 +4,22 @@
 
 <?php if (! empty($news) && is_array($news)): ?>
 
-<div class="card-group">
-    <?php foreach ($news as $news_item): ?>
+<div class="row row-cols-1 row-cols-md-4 g-4">
 
-		<div class="card mb-4">
+		<?php foreach ($news as $news_item): ?>
+		<div class="col">
+		<div class="card mb-2 h-100">
 		  <div class="card-body">
 			<h5 class="card-title"><?= esc($news_item['title']) ?></h5>
 			<p class="card-text"><?= esc($news_item['body']) ?></p>
 			<a href="<?=base_url()?>/news/<?= esc($news_item['slug'], 'url') ?>" class="btn btn-primary">View article</a>
 		  </div>
 		</div>
+		</div>
         
 
     <?php endforeach ?>
-</div>	
+</div>
 	
 
 <?php else: ?>

@@ -4,9 +4,10 @@
 
 <?php if (! empty($news) && is_array($news)): ?>
 
+<div class="card-group">
     <?php foreach ($news as $news_item): ?>
 
-		<div class="card w-50 mb-4">
+		<div class="card mb-4">
 		  <div class="card-body">
 			<h5 class="card-title"><?= esc($news_item['title']) ?></h5>
 			<p class="card-text"><?= esc($news_item['body']) ?></p>
@@ -16,6 +17,8 @@
         
 
     <?php endforeach ?>
+</div>	
+	
 
 <?php else: ?>
 

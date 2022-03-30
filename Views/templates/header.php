@@ -11,11 +11,6 @@
 
 </head>
 <body>
-	<div class="container-fluid">
-	<div class="container-sm">
-	<div class="container-md">
-	<div class="container-lg">
-	<div class="container-xl">
-	<div class="container-xxl">
+	<div class="container-fluid container-sm">
 	<?php echo view("templates/navbar"); ?>
     <h1><?= esc($title) ?></h1>

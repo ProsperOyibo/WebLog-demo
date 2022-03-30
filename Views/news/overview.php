@@ -1,6 +1,5 @@
-<h2><?= esc($title) ?></h2>
 
-<a class="btn btn-primary mb-4" href="<?=base_url()?>/news/create">Create article</a>
+<a class="btn btn-secondary mb-4" href="<?=base_url()?>/news/create">Create article</a>
 
 <?php if (! empty($news) && is_array($news)): ?>
 
@@ -8,11 +7,11 @@
 
 		<?php foreach ($news as $news_item): ?>
 		<div class="col">
-		<div class="card mb-2 h-100 text-black bg-light">
+		<div class="card mb-2 h-100 text-black bg-white">
 		  <div class="card-body">
 			<h5 class="card-title"><?= esc($news_item['title']) ?></h5>
 			<p class="card-text"><?= esc($news_item['body']) ?></p>
-			<a href="<?=base_url()?>/news/view/<?= esc($news_item['slug'], 'url') ?>" class="btn btn-primary">View article</a>
+			<a href="<?=base_url()?>/news/view/<?= esc($news_item['slug'], 'url') ?>" class="btn btn-secondary">View article</a>
 		  </div>
 		</div>
 		</div>

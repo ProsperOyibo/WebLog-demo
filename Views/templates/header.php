@@ -11,6 +11,6 @@
 
 </head>
 <body class="bg-light text-black">
-	<div class="container-fluid container-sm">
+	<div class="container-fluid bg-light container-sm">
 	<?php echo view("templates/navbar"); ?>
     <h1><?= esc($title) ?></h1>

@@ -1,7 +1,7 @@
 
-<a class="btn btn-secondary mb-4" href="<?=base_url()?>/news/create">Create article</a> <br/>
+<a class="btn btn-outline-warning text-black mb-4" href="<?=base_url()?>/news/create">Create article</a> <br/>
 
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleInterval" class="carousel slide h-20" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
       <img src="<?=base_url('images/book-shelf.jpg')?>" class="d-block w-100" alt="...">
@@ -34,7 +34,7 @@
 		  <div class="card-body">
 			<h5 class="card-title"><?= esc($news_item['title']) ?></h5>
 			<p class="card-text"><?= esc($news_item['body']) ?></p>
-			<a href="<?=base_url()?>/news/view/<?= esc($news_item['slug'], 'url') ?>" class="btn btn-secondary">View article</a>
+			<a href="<?=base_url()?>/news/view/<?= esc($news_item['slug'], 'url') ?>" class="btn btn-outline-warning text-black">View article</a>
 		  </div>
 		</div>
 		</div>

@@ -14,3 +14,4 @@
 	<div class="container-fluid bg-light container-sm">
 	<?php echo view("templates/navbar"); ?>
     <h1><?= esc($title) ?></h1>
+	

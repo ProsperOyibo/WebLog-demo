@@ -1,16 +1,16 @@
 
 <a class="btn btn-outline-warning text-black mb-4" href="<?=base_url()?>/news/create">Create article</a> <br/>
 
-<div id="carouselExampleInterval" class="carousel slide h-20" data-bs-ride="carousel">
+<div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="3000">
-      <img src="<?=base_url('images/book-shelf.jpg')?>" class="d-block w-100" alt="...">
+      <img src="<?=base_url('images/photo-slide-1.png')?>" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" data-bs-interval="3000">
-      <img src="<?=base_url('images/book-shelf.jpg')?>" class="d-block w-100" alt="...">
+      <img src="<?=base_url('images/photo-slide-2.png')?>" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" data-bs-interval="3000">
-      <img src="<?=base_url('images/book-shelf.jpg')?>" class="d-block w-100" alt="...">
+      <img src="<?=base_url('images/photo-slide-3.png')?>" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">

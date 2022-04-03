@@ -23,24 +23,28 @@
   </button>
 </div> <br/>
 
-<p id="ajaxArticle"></p> 
+<p id="ajaxArticle"></p>
 
 
 <?php if (! empty($news) && is_array($news)): ?>
 
-<div class="row row-cols-1 row-cols-md-5 g-1">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2">
 
 		<?php foreach ($news as $news_item): ?>
 		<div class="col">
-		<div class="card mb-2 h-100 text-black bg-white">
-		  <div class="card-body">
+		<div class="card m-1 h-100 text-black bg-white">
+		  <div class="card-body" style="background-image: url('https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp');">
 			<h5 class="card-title"><?= esc($news_item['title']) ?></h5>
 			 <p class="card-text"><?= esc($news_item['body']) ?></p> 
-			<a href="<?=base_url()?>/news/view/<?= esc($news_item['slug'], 'url') ?>" class="btn btn-outline-info text-black">View Article</a>
-			<p><button class="btn btn-outline-warning text-black" onclick="getData('<?= esc($news_item['slug'], 'url') ?>')">View article via Ajax</button></p>
-			<a href="<?=base_url()?>/news/delete/<?= esc($news_item['slug'], 'url') ?>" class="btn btn-danger text-white">Delete</a>
-		  </div>
-		</div>
+			</div>
+			 <div class="card-footer">
+			 <div class="btn-group" role="group" aria-label="Basic example">
+				<a href="<?=base_url()?>/news/view/<?= esc($news_item['slug'], 'url') ?>" class="btn btn-outline-info text-black">View</a>
+				<button class="btn btn-outline-warning text-black" onclick="getData('<?= esc($news_item['slug'], 'url') ?>')" >Ajax</button>
+				<a href="<?=base_url()?>/news/delete/<?= esc($news_item['slug'], 'url') ?>" class="btn btn-danger text-white">Delete</a>
+			</div>
+			</div>
+		 </div>
 		</div>
         
 
@@ -67,7 +71,7 @@
 		  .then(response => {
 
 			// Copy one element of response to our HTML paragraph
-			document.getElementById("ajaxArticle").innerHTML = response.title + ": " + response.text;
+			document.getElementById("ajaxArticle").innerHTML = response.slug + ": " + response.body;
 		  })
 		  .catch(err => {
 			

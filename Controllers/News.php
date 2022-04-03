@@ -7,13 +7,6 @@ use App\Models\NewsModel;
 //News controller
 class News extends BaseController
 {
-	public function delete($slug)
-	{
-		$model = model(NewsModel::class);
-		
-		$model->deleteNews($slug);
-		
-	}
 	//List all news item
 	public function index()
 	{
@@ -72,5 +65,14 @@ class News extends BaseController
 			echo view('news/create');
 			echo view('templates/footer');
 		}
+	}
+	
+	public function delete($slug)
+	{
+		$model = model(NewsModel::class);
+		
+		$model->deleteNews($slug);
+		return redirect()->to('news');
+		
 	}
 }

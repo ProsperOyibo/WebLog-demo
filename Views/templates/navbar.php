@@ -20,7 +20,7 @@
             <li><a class="dropdown-item" href="<?=base_url()?>/pages/view/fiction">Fiction</a></li>
             <li><a class="dropdown-item" href="<?=base_url()?>/pages/view/non-fiction">Non-Fiction</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign up</a></li>
+            <li><a class="dropdown-item" href="<?=base_url()?>/users/register">Sign up</a></li>
           </ul>
         </li>
         <li class="nav-item">

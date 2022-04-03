@@ -20,11 +20,11 @@
             <li><a class="dropdown-item" href="<?=base_url()?>/pages/view/fiction">Fiction</a></li>
             <li><a class="dropdown-item" href="<?=base_url()?>/pages/view/non-fiction">Non-Fiction</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Sign up</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link disabled">Find Store</a>
         </li>
       </ul>
       <form class="d-flex">

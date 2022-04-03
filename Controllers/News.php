@@ -7,6 +7,13 @@ use App\Models\NewsModel;
 //News controller
 class News extends BaseController
 {
+	public function delete($slug)
+	{
+		$model = model(NewsModel::class);
+		
+		$model->deleteNews($slug);
+		
+	}
 	//List all news item
 	public function index()
 	{

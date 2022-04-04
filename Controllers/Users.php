@@ -17,22 +17,22 @@ class Users extends BaseController
 	
 	public function login()
 	{
-		
+		$model = model(UsersModel::class);
 	}
 	
 	public function logout()
 	{
-		
+		$model = model(UsersModel::class);
 	}
 	
 	public function update()
 	{
-		
+		$model = model(UsersModel::class);
 	}
 	
 	public function delete()
 	{
-		
+		$model = model(UsersModel::class);
 	}
 	
 	public function register()

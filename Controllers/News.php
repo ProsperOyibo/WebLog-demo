@@ -16,7 +16,7 @@ class News extends BaseController
 		// We store the data in an object, to pass to the view
 		$data = [
 			'news'  => $model->getNews(), // we get our news item from model
-			'title' => 'News archive',    // and a title for the page
+			'title' => 'Welcome!',    // and a title for the page
 		];
 
 		// Loads views, passing our data object
@@ -24,6 +24,7 @@ class News extends BaseController
 		echo view('news/overview', $data);
 		echo view('templates/footer', $data);
 	}
+	
 
     //List ONE new item, based on slug
     public function view($slug = null)
@@ -74,5 +75,29 @@ class News extends BaseController
 		$model->deleteNews($slug);
 		return redirect()->to('news');
 		
+	}
+	
+	public function amend($slug)
+	{
+		$model = model(NewsModel::class);
+		
+		if ($this->request->getMethod() === 'post' && $this->validate([
+			'title' => 'required|min_length[3]|max_length[255]',
+			'body'  => 'required',
+		])) {
+			$model->update([
+				'title' => $this->request->getPost('title'),
+				'slug'  => url_title($this->request->getPost('title'), '-', true),
+				'body'  => $this->request->getPost('body'),
+			]);
+
+			//echo view('news/success');
+			return redirect()->to('news');
+			
+		} else {
+			echo view('templates/header', ['title' => 'Create a news item']);
+			echo view('news/create');
+			echo view('templates/footer');
+		}
 	}
 }

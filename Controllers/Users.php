@@ -18,6 +18,10 @@ class Users extends BaseController
 	public function login()
 	{
 		$model = model(UsersModel::class);
+		
+		echo view('templates/header', ['title' => 'Log in']);
+			echo view('users/login');
+			echo view('templates/footer');
 	}
 	
 	public function logout()
@@ -40,11 +44,11 @@ class Users extends BaseController
 		$model = model(UsersModel::class);
 
 		if ($this->request->getMethod() === 'post' && $this->validate([
-			'username' => 'required',
+			'username' => 'required|alpha_numeric_space|min_length[5]',
 			'first_name' => 'required',
 			'last_name' => 'required',
-			'email' => 'required',
-			'password'  => 'required',
+			'email' => 'required|valid_email|is_unique[users.email]',
+			'password'  => 'required|min_length[8]',
 		])) {
 			$model->save([
 				'username' => $this->request->getPost('username'),

@@ -22,11 +22,12 @@ class UsersModel extends Model
 		return $this->where(['slug' => $slug])->first();
 	}
 	
-	public function deleteNews($slug)
+	public function deleteAccount()
 	{
 		$db = \Config\Database::connect();
 		$builder = $db->table('news');
 		$builder->delete(['slug' => $slug]);
 		
 	}
+	
 }

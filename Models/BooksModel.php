@@ -4,13 +4,13 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class NewsModel extends Model
+class BooksModel extends Model
 {
-    protected $table = 'news';
-	protected $allowedFields = ['title', 'slug', 'body'];
+    protected $table = 'books';
+	protected $allowedFields = ['title', 'author', 'published', 'slug', 'genre','description'];
 	
 	// This returns news items from database
-		public function getNews($slug = false)
+		public function getBooks($slug = false)
 		
 	{
 		// If no slug (Id) from new db is provided then select all
@@ -22,13 +22,12 @@ class NewsModel extends Model
 		return $this->where(['slug' => $slug])->first();
 	}
 	
-	public function deleteNews($slug)
+	public function deleteBooks($slug)
 	{
 		$db = \Config\Database::connect();
-		$builder = $db->table('news');
+		$builder = $db->table('books');
 		$builder->delete(['slug' => $slug]);
 		
 	}
-	
 	
 }

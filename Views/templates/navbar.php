@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="<?=base_url()?>/news">WebLog</a>
@@ -10,7 +11,7 @@
           <a class="nav-link active" aria-current="page" href="<?=base_url()?>/pages/view/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?=base_url()?>/pages/view/contact-us">Contact-us</a>
+          <a class="nav-link" href="<?=base_url()?>/users/login">Login</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -28,9 +29,10 @@
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="Search by title,author" aria-label="Search">
         <button class="btn btn-light" type="submit">Search</button>
       </form>
     </div>
   </div>
 </nav>
+

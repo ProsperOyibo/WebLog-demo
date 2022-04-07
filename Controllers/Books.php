@@ -82,7 +82,7 @@ class Books extends BaseController
 		
 	}
 	
-	public function amend($slug)
+	public function amend()
 	{
 		$model = model(BooksModel::class);
 
@@ -106,10 +106,9 @@ class Books extends BaseController
 			return redirect()->to('books');
 			
 		} else {
-			echo view('templates/header', ['title' => 'Add a new Book']);
-			echo view('books/create');
+			echo view('templates/header', ['title' => 'Update Book']);
+			echo view('books/update');
 			echo view('templates/footer');
 		}
-
 	}
 }

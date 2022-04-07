@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class BooksModel extends Model
 {
     protected $table = 'books';
-	protected $allowedFields = ['title', 'author', 'published', 'slug', 'genre','description'];
+	protected $allowedFields = ['title','author','published','genre', 'slug', 'description'];
 	
 	// This returns news items from database
 		public function getBooks($slug = false)
@@ -29,5 +29,5 @@ class BooksModel extends Model
 		$builder->delete(['slug' => $slug]);
 		
 	}
-	
+	 
 }

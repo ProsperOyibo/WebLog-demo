@@ -97,7 +97,7 @@
 		  .then(response => {
 
 			// Copy one element of response to our HTML paragraph
-			document.getElementById("ajaxArticle").innerHTML = response.title + ": " + response.body;
+			document.getElementById("ajaxArticle").innerHTML = response.title + ": " + response.slug;
 		  })
 		  .catch(err => {
 			
@@ -108,18 +108,12 @@
 </script>
 
 <script>
-
-$(document).ready(function(){
-  $("#loadMore").on("click", function(e){
-    e.preventDefault();
-    $(".content:hidden").slice(0, 4).slideDown();
-    if($(".content:hidden").length == 0) {
-      $("#loadMore").text("No Content").addClass("noContent");
-    }
-  });
-  
-})
-
+$( document ).ready(function () {
+  $("col").slice(0, 3).show();
+    if ($news_items.length != 0) {
+      $("#loadMore").show(news_items);
+    } 
+}
 
 </script>
 

@@ -1,48 +1,21 @@
 <style>
-*, body {
-  margin: 0;
-  padding: 0;
+#myBtn {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    text-align: center;
+    width: 100%;
 }
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+#myBtn a {
+    background: #faa635;
+    border-radius: 3px;
+    color: white;
+    display: inline-block;
+    padding: 10px 30px;
+    transition: all 0.25s ease-out;
+    -webkit-font-smoothing: antialiased;
 }
-.content {
-  height: 100px;
-  width: 45%;
-  color: #fff;
-  font-size: 24px;
-  line-height: 100px; /* centering text just for view */
-  text-align: center;
-  background-color: grey;
-  margin: 5px;
-  border: 1px solid lightgrey;
-  display: none;
-}
-#loadMore {
-  width: 200px;
-  color: #fff;
-  display: block;
-  text-align: center;
-  margin: 20px auto;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid transparent;
-  background-color: blue;
-  transition: .3s;
-}
-#loadMore:hover {
-  color: blue;
-  background-color: #fff;
-  border: 1px solid blue;
-  text-decoration: none;
-}
-.noContent {
-  color: #000 !important;
-  background-color: transparent !important;
-  pointer-events: none;
+#myBtn a:hover {
+    background-color: #042a63;
 }
 </style>
 
@@ -87,19 +60,19 @@
 			</div>
 			 <div class="card-footer">
 			 <div class="btn-group" role="group" aria-label="Basic example">
-				<a href="<?=base_url()?>/books/view/<?= esc($books_item['slug'], 'url') ?>" class="btn btn-outline-info text-black">View Book</a>
+				<a href="<?=base_url()?>/books/view/<?= esc($books_item['slug'], 'url') ?>" class="btn btn-outline-info text-black">View </a>
 				<button class="btn btn-outline-dark" onclick="getData('<?= esc($books_item['slug'], 'url') ?>')"> Genre</button>
 				<a href="<?=base_url()?>/books/amend/<?= esc($books_item['slug'], 'url') ?>" class="btn btn-outline-primary text-dark">Update</a>
+				<a href="<?=base_url()?>/books/delete/<?= esc($books_item['slug'], 'url') ?>" class="btn btn-danger text-white">Delete</a>
 			</div>
 			</div>
 		 </div>
-		 
 		</div>
         
 
     <?php endforeach ?>
 </div>
-				<a href="#" id="loadMore">Load More</a>
+			<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 <?php else: ?>
 
@@ -134,16 +107,22 @@
 	}
 </script>
 
+
 <script>
-$(document).ready(function(){
-  $(".content").slice(0, 4).show();
-  $("#loadMore").on("click", function(e){
-    e.preventDefault();
-    $(".content:hidden").slice(0, 4).slideDown();
-    if($(".content:hidden").length == 0) {
-      $("#loadMore").text("No Content").addClass("noContent");
-    }
-  });
-  
-})
-</script
+      // When the user scrolls down 50px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+   
+      function scrollFunction() {
+         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+           document.getElementById("myBtn").style.display = "block";
+         } else {
+           document.getElementById("myBtn").style.display = "none";
+         }
+         }
+   
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+         document.body.scrollTop = 0; // For Safari
+         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+         }
+ </script>

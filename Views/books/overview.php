@@ -1,25 +1,6 @@
-<style>
-#myBtn {
-    padding-bottom: 30px;
-    padding-top: 30px;
-    text-align: center;
-    width: 100%;
-}
-#myBtn a {
-    background: #faa635;
-    border-radius: 3px;
-    color: white;
-    display: inline-block;
-    padding: 10px 30px;
-    transition: all 0.25s ease-out;
-    -webkit-font-smoothing: antialiased;
-}
-#myBtn a:hover {
-    background-color: #042a63;
-}
-</style>
 
-<a class="btn btn-outline-warning text-black mb-4" href="<?=base_url()?>/books/create">Add Book</a> <br/>
+
+<a class="btn btn-outline-success text-black mb-4" href="<?=base_url()?>/books/create">Add Book</a> <br/>
 
 <div  id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel" class="carousel fluid" >
   <div class="carousel-inner">
@@ -60,19 +41,18 @@
 			</div>
 			 <div class="card-footer">
 			 <div class="btn-group" role="group" aria-label="Basic example">
-				<a href="<?=base_url()?>/books/view/<?= esc($books_item['slug'], 'url') ?>" class="btn btn-outline-info text-black">View </a>
+				<a href="<?=base_url()?>/books/delete/<?= esc($books_item['slug'], 'url') ?>" class="btn btn-danger text-white">Delete</a>
 				<button class="btn btn-outline-dark" onclick="getData('<?= esc($books_item['slug'], 'url') ?>')"> Genre</button>
 				<a href="<?=base_url()?>/books/amend/<?= esc($books_item['slug'], 'url') ?>" class="btn btn-outline-primary text-dark">Update</a>
-				<a href="<?=base_url()?>/books/delete/<?= esc($books_item['slug'], 'url') ?>" class="btn btn-danger text-white">Delete</a>
+				<a href="<?=base_url()?>/books/view/<?= esc($books_item['slug'], 'url') ?>" class="btn btn-outline-info text-black">View </a>
 			</div>
 			</div>
 		 </div>
 		</div>
-        
 
     <?php endforeach ?>
 </div>
-			<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+			
 
 <?php else: ?>
 
@@ -108,21 +88,4 @@
 </script>
 
 
-<script>
-      // When the user scrolls down 50px from the top of the document, show the button
-      window.onscroll = function() {scrollFunction()};
-   
-      function scrollFunction() {
-         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-           document.getElementById("myBtn").style.display = "block";
-         } else {
-           document.getElementById("myBtn").style.display = "none";
-         }
-         }
-   
-      // When the user clicks on the button, scroll to the top of the document
-      function topFunction() {
-         document.body.scrollTop = 0; // For Safari
-         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-         }
- </script>
+

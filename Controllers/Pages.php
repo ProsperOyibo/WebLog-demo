@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\BooksModel;
+
 class Pages extends BaseController
 {
     public function index()
@@ -22,4 +24,5 @@ class Pages extends BaseController
 		echo view('pages/' . $page, $data);
 		echo view('templates/footer', $data);
 	}
+	
 }

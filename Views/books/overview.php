@@ -29,18 +29,18 @@
 
 <div  class="alert alert-dark" id="ajaxArticle" role="alert" aria-live="assertive" aria-atomic="true"> </div>
 
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2">
+<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-2">
 
 		<?php foreach ($books as $books_item): ?>
 		<div class="col" >
 		<div class="card m-1 h-100 text-black ">
-		  <div class="card-body" style="background-image: url('https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp');" >
+		  <div class="card-body bg-dark text-white" >
 			<h5 class="card-title"><b><?= esc($books_item['title']) ?></b></h5>
 			 <p class="card-text"><?= esc($books_item['author']) ?></p> 
 			  <p class="card-text"><?= esc($books_item['published']) ?></p>
 			</div>
 			 <div class="card-footer">
-			 <div class="btn-group" role="group" aria-label="Basic example">
+			 <div class=" btn-fluid btn-group" role="group" aria-label="Basic example">
 				<a href="<?=base_url()?>/books/delete/<?= esc($books_item['slug'], 'url') ?>" class="btn btn-danger text-white">Delete</a>
 				<button class="btn btn-outline-dark" onclick="getData('<?= esc($books_item['slug'], 'url') ?>')"> Genre</button>
 				<a href="<?=base_url()?>/books/amend/<?= esc($books_item['slug'], 'url') ?>" class="btn btn-outline-primary text-dark">Update</a>

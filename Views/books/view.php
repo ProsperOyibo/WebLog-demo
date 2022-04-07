@@ -1,7 +1,9 @@
 <div class="container-fluid bg-dark text-dark" >
 <div class="card">
-  <div class="card-body">
+  <div class="card-body bg-dark text-white">
+
 <p><?= esc($books['description']) ?></p>
+	
  </div>
 </div>
 

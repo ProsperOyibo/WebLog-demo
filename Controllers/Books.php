@@ -8,7 +8,7 @@ use App\Models\BooksModel;
 class Books extends BaseController
 {
 	//List all news item
-	public function index()
+	public function index($message = '')
 	{
 		// We "grab" our model
 		$model = model(BooksModel::class);
@@ -17,6 +17,7 @@ class Books extends BaseController
 		$data = [
 			'books'  => $model->getBooks(), // we get our news item from model
 			'title' => 'Welcome!',    // and a title for the page
+			'message' => $message
 		];
 
 		// Loads views, passing our data object
@@ -64,7 +65,7 @@ class Books extends BaseController
 			]);
 
 			//echo view('news/success');
-			return redirect()->to('books');
+			return redirect()->to('books/index/1');
 			
 		} else {
 			echo view('templates/header', ['title' => 'Add a new Book']);
@@ -78,7 +79,7 @@ class Books extends BaseController
 		$model = model(BooksModel::class);
 		
 		$model->deleteBooks($slug);
-		return redirect()->to('books');
+		return redirect()->to('books/index/2');
 		
 	}
 	

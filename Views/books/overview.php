@@ -29,6 +29,11 @@
 
 <div  class="alert alert-dark" id="ajaxArticle" role="alert" aria-live="assertive" aria-atomic="true"> </div>
 
+<?php if($message == 1) : ?>
+	<div  class="alert alert-dark" id="ajaxArticle" role="alert" aria-live="assertive" aria-atomic="true">Book Added!</div>
+<?php elseif($message == 2):?>
+	<div  class="alert alert-dark" id="ajaxArticle" role="alert" aria-live="assertive" aria-atomic="true">Book deleted successfully!</div>
+<?php endif ?>
 <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-2">
 
 		<?php foreach ($books as $books_item): ?>

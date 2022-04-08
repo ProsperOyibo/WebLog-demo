@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 use App\Models\BooksModel;
 
-//News controller
+//Books controller
 class Books extends BaseController
 {
-	//List all news item
+	//List all books item
 	public function index($message = '')
 	{
 		// We "grab" our model
@@ -26,7 +26,7 @@ class Books extends BaseController
 		echo view('templates/footer', $data);
 	}
 
-    //List ONE new item, based on slug
+    //List ONE book item, based on Id
     public function view($bookId = null)
     {
 			$model = model(BooksModel::class);
@@ -63,8 +63,7 @@ class Books extends BaseController
 				'genre' => $this->request->getPost('genre'),
 				'description'  => $this->request->getPost('description'),
 			]);
-
-			//echo view('news/success');
+				
 			return redirect()->to('books/index/1');
 			
 		} else {

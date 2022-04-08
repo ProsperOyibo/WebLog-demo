@@ -9,24 +9,24 @@ class UsersModel extends Model
     protected $table = 'users';
 	protected $allowedFields = ['username', 'first_name', 'last_name', 'email', 'password'];
 	
-	// This returns news items from database
-		public function getNews($slug = false)
+	// This returns users from database
+		public function getUsers($id = false)
 		
 	{
-		// If no slug (Id) from new db is provided then select all
-		if ($slug === false) {
+		// If no (Id) from new db is provided then select all
+		if ($id === false) {
 			return $this->findAll();
 		}
 		
-        // if slug (Id) is provided then select that one
-		return $this->where(['slug' => $slug])->first();
+        // if  (Id) is provided then select that one
+		return $this->where(['id' => $id])->first();
 	}
 	
-	public function deleteAccount()
+	public function deleteAccount($id)
 	{
 		$db = \Config\Database::connect();
-		$builder = $db->table('news');
-		$builder->delete(['slug' => $slug]);
+		$builder = $db->table('users');
+		$builder->delete(['id' => $id]);
 		
 	}
 	

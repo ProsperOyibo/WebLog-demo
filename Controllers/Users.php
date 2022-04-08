@@ -4,14 +4,20 @@ namespace App\Controllers;
 
 use App\Models\UsersModel;
 
-//News controller
+//user controller
 class Users extends BaseController
 {
-	//List all news item
+	//List all users
 	public function index()
 	{
 		// We "grab" our model
 		$model = model(UsersModel::class);
+
+		$data = [
+			'users'  => $model->getUsers(), 
+			'username' => $username,    
+			
+		];
 
 	}
 	
@@ -37,6 +43,8 @@ class Users extends BaseController
 	public function delete()
 	{
 		$model = model(UsersModel::class);
+		$model->deleteAccount($Id);
+		return redirect()->to('users/register');
 	}
 	
 	public function register()
@@ -58,9 +66,10 @@ class Users extends BaseController
 				'password'  => $this->request->getPost('password'),
 			]);
 
-			//echo view('news/success');
-			echo '<script>alert("Account Created!")</script>';
-			return redirect()->to('users/register');
+			echo view('templates/header', ['title' => 'Success']);
+			echo view('users/success');
+			echo view('templates/footer');
+			
 			
 		} else {
 			echo view('templates/header', ['title' => 'Sign Up']);

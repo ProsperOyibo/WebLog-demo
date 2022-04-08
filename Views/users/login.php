@@ -1,7 +1,7 @@
 <?= session()->getFlashdata('error') ?>
 <?= service('validation')->listErrors() ?>
 
-<?php if (!isset($_POST['submit'])) { ?>
+
 <div class="card text-black bg-outline-dark m-4 h-100" >
 <div class="card-body">
   <form action="<?=base_url()?>/users/login" class="form-container">
@@ -23,12 +23,3 @@
   </form>
 </div>
 
-<?php } else {
-	
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	
-}
-		
-
-?>

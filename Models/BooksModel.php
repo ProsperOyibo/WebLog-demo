@@ -9,16 +9,16 @@ class BooksModel extends Model
     protected $table = 'books';
 	protected $allowedFields = ['title', 'author', 'published', 'genre', 'slug', 'description'];
 	
-	// This returns news items from database
+	// This returns book items from database
 		public function getBooks($bookId = false)
 		
 	{
-		// If no slug (Id) from new db is provided then select all
+		// If no  (Id) from new db is provided then select all
 		if ($bookId === false) {
 			return $this->findAll();
 		}
 		
-        // if slug (Id) is provided then select that one
+        // if  (Id) is provided then select that one
 		return $this->where(['bookId' => $bookId])->first();
 	}
 	

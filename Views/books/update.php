@@ -7,7 +7,7 @@
     <?= csrf_field() ?>
 	<div class="mb-3">
 		<label for="title" >Title:</label>
-		<input  class="form-control" type="input" name="title" required /><br />
+		<input   class="form-control" type="input" name="title" required /><br />
     </div>
 	<div class="mb-3">
 		<label for="author" >Authour:</label>

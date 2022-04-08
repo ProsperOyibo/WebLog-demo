@@ -7,27 +7,28 @@ use CodeIgniter\Model;
 class BooksModel extends Model
 {
     protected $table = 'books';
-	protected $allowedFields = ['title','author','published','genre', 'slug', 'description'];
+	protected $allowedFields = ['title', 'author', 'published', 'genre', 'slug', 'description'];
 	
 	// This returns news items from database
-		public function getBooks($slug = false)
+		public function getBooks($bookId = false)
 		
 	{
 		// If no slug (Id) from new db is provided then select all
-		if ($slug === false) {
+		if ($bookId === false) {
 			return $this->findAll();
 		}
 		
         // if slug (Id) is provided then select that one
-		return $this->where(['slug' => $slug])->first();
+		return $this->where(['bookId' => $bookId])->first();
 	}
 	
-	public function deleteBooks($slug)
+	public function deleteBooks($bookId)
 	{
 		$db = \Config\Database::connect();
 		$builder = $db->table('books');
-		$builder->delete(['slug' => $slug]);
+		$builder->delete(['bookId' => $bookId]);
 		
 	}
+	
 	 
 }

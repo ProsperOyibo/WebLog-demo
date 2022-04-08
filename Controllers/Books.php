@@ -27,14 +27,14 @@ class Books extends BaseController
 	}
 
     //List ONE new item, based on slug
-    public function view($slug = null)
+    public function view($bookId = null)
     {
 			$model = model(BooksModel::class);
 
-			$data['books'] = $model->getBooks($slug);
+			$data['books'] = $model->getBooks($bookId);
 			
 		if (empty($data['books'])) {
-			throw new \CodeIgniter\Exceptions\PageNotFoundException('Cannot find the news item: ' . $summary);
+			throw new \CodeIgniter\Exceptions\PageNotFoundException('Cannot find the news item: ' . $bookId);
 		}
 
 		$data['title'] = $data['books']['title'];
@@ -74,19 +74,20 @@ class Books extends BaseController
 		}
 	}
 	
-	public function delete($slug)
+	public function delete($bookId)
 	{
 		$model = model(BooksModel::class);
 		
-		$model->deleteBooks($slug);
+		$model->deleteBooks($bookId);
 		return redirect()->to('books/index/2');
 		
 	}
 	
 	public function amend()
 	{
+			
 		$model = model(BooksModel::class);
-
+		
 		if ($this->request->getMethod() === 'post' && $this->validate([
 			'title' => 'required',
 			'author' => 'required',
@@ -94,7 +95,7 @@ class Books extends BaseController
 			'genre' => 'required',
 			'description'  => 'required',
 		])) {
-			$model->save([
+			 $model->save([
 				'title' => $this->request->getPost('title'),
 				'author' => $this->request->getPost('author'),
 				'published' => $this->request->getPost('published'),
@@ -102,14 +103,14 @@ class Books extends BaseController
 				'genre' => $this->request->getPost('genre'),
 				'description'  => $this->request->getPost('description'),
 			]);
-
-			//echo view('news/success');
-			return redirect()->to('books');
 			
-		} else {
-			echo view('templates/header', ['title' => 'Update Book']);
-			echo view('books/update');
-			echo view('templates/footer');
+			
+		    return redirect()->to('books/index/3');	
+		
+		}else {
+				echo view('templates/header', ['title' => 'Update Book']);
+				echo view('books/update');
+				echo view('templates/footer');
 		}
 	}
 }
